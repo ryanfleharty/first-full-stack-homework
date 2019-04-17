@@ -10,8 +10,13 @@
     <h1>Citizens of the Seven Kingdoms:</h1>
     <ul>
         <% for (let i = 0; i < got.length; i++) {%>
-            <li>got[i].name</li>
-        <%}%>
+            <li>
+                <%=got[i].name; %>
+            </li>
+            <form action="/got/<%=got[i].id%>?_method=DELETE" method="POST">
+                <button type="submit" value="delete">Delete</button>
+            </form>
+        <% } %>
     </ul>
 
 

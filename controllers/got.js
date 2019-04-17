@@ -4,7 +4,7 @@ const router = express.Router();
 const Got = require('../models/got');
 
 
-//SHOW route:
+//INDEX:
 router.get('/', (req, res) => {
     Got.find({}, (err, allCharacters) => {
         if(err) {

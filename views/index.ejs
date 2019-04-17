@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Guitar Index Page</title>
+</head>
+<body>
+  <h1>Guitar Index Page</h1>
+  <ul class="guitars">
+  <% for (let i = 0; i < guitars.length; i++){ %>
+    <li><a href="<%= guitars[i]._id %>"><% guitars[i].name %></a></li>
+    <% } %>
+  </ul>
+  <form action="/guitars/new" method="GET">
+    <button type="submit">Create New</button>
+  </form>
+</body>
+</html>

@@ -33,25 +33,21 @@ router.get('/new', (req, res) => {
 
 // SHOW ROUTE
 
-router.get('/:id', (req, res)=>{
-    Shoe.findOne({_id: req.params.id}, ( err, foundShoe) =>{
-    if (err){
-        res.send(err);
-    } else {
-        console.log(foundShoe)
-        if(foundShoe != null){
-            res.render('show.ejs', {shoe: foundShoe});
-
+router.get('/:id', (req, res) => {
+    shoe.findById(req.params.id, (err, foundShoe) => {
+        if(err){
+            console.log(err);
+            res.send(err);
         } else {
-            res.send('no shoe found');
+            res.render('show.ejs', {shoe: foundShoe});
         }
-    }
- })
-}); 
+    })
+})
+
 
 // DELETE ROUTE
 router.delete('/:id', (req, res) => {
-    Shoe.findByIdAndDelete({_id: req.params.id}, (err, deletedShoe) =>{
+    Shoe.findByIdAndDelete(req.params.id, (err, deletedShoe) =>{
       if (err){
         console.log(err)
       } else {
@@ -64,18 +60,28 @@ router.delete('/:id', (req, res) => {
 
   // EDIT ROUTE 
 
-router.get('/:id/edit', (req, res) => {
-    Shoe.findOne({_id: req.params.id}, (err, foundShoe) =>{
+  router.get('/:id/edit', (req, res) => {
+    Shoe.findById(req.params.id, (err, foundShoe) => {
         if(err){
+            console.log(err);
             res.send(err);
         } else {
-            console.log(foundShoe);
-            if(foundShoe != null){
-                res.render('edit.ejs', {shoe: foundShoe});
-            }
+            res.render('edit.ejs', {shoe: foundShoe});
         }
     })
-  })
+})
 
+// UPDATE
+router.put('/:id', (req, res) => {
+    Shoe.findByIdAndUpdate(req.params.id, req.body, (err, updateShoe) => {
+        if(err){
+            console.log(err);
+            res.send(err);
+        } else {
+            console.log(updateShoe);
+            res.redirect('/shoe', {shoe: updateShoe})
+        }
+    })
+})
 
 module.exports = router; 

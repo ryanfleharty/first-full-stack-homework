@@ -6,6 +6,11 @@ const Team = require('../models/team');
 
 
 
+// NEW ROUTE
+router.get('/new', (req, res) => {
+    res.render('new.ejs')
+});
+
 // INDEX ROUTE
 router.get('/', (req, res) => {
     Team.find({}, (error, allTeams) => {
@@ -19,7 +24,7 @@ router.get('/', (req, res) => {
     })
 });
 
-// NEW ROUTE
+
 
 // CREATE ROUTE
 
@@ -30,7 +35,18 @@ router.get('/', (req, res) => {
 // UPDATE ROUTE
 
 // SHOW ROUTE
-
+router.get('/:id', (req, res) => {
+    Team.findById(req.params.id, (error, returnedTeam) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render('show.ejs', {
+            team: returnedTeam,  
+            teamName: returnedTeam.name,
+            })
+        }
+    })
+})
 
 
 

@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Soccer Teams</h1>
+    <form action="team/new" method="get"><button>Add Team</button></form>
         <ul>
         <% for(let i = 0; i < allTeams.length; i++){ %>
             <li>
@@ -17,8 +18,8 @@
                     <button>Remove</button>
                 </form>
             </li>
-            
         <% } %>
     </ul>
+    
 </body>
 </html>

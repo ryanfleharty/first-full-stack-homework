@@ -19,7 +19,7 @@ ul {
 
 li {
     margin-bottom: 20px;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -28,7 +28,8 @@ img {
 }
 
 h1 {
-    font-size: 48px;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 65px;
     padding: 10px;
     border-bottom: 3px solid rgb(0, 19, 124);
 }

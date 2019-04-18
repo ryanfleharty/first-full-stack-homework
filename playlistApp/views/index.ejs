@@ -4,10 +4,23 @@
         <meta charset="utf-8">
         <title></title>
     </head>
-    <body>
-        <h1>Awesome Mix Tape! Radical!</h1>
-        <%for (let i = 0; i < playlist.length; i++){%>
-            <li><%=playlist.song%> by <%=playlist.artist%></li>
-        <%}%>
-    </body>
+<body>
+    <h1>AWESOME PLAYLIST! COWABUNGA!!</h1>
+
+          <ul>
+            <% for(let i = 0; i < playlist.length; i++){ %>
+                <li>
+                    <a href="/playlist/<%=playlist[i]._id%>"><%=playlist[i].song%></a>
+                    <a href="/playlist/<%=playlist[i]._id%>/edit"><button>Edit</button></a>
+                    <form action="/playlist/<%=playlist[i]._id%>?_method=DELETE" method="POST">
+                        <button>Remove</button>
+                    </form>
+                </li>
+                
+            <% } %>
+        </ul>
+
+        <a href="/playlist/new"><button>Add a RAD Song to this TUBULAR playlist!</button></a>
+
+</body>
 </html>

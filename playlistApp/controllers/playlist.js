@@ -3,10 +3,16 @@ const router = express.Router();
 const Playlist = require('../models/playlist');
 
 router.get('/',(req, res)=>{
-    res.render('index.ejs', {
-        playlist: Playlist
+    Playlist.find({}, (error, wholePlaylist) => {
+
+    if (error) {
+        res.send(error);
+    } else {
+        res.render('index.ejs', {
+            playlist: wholePlaylist
+            });
+        }
     })
-    console.log(playlist)
 });
 
 router.get('/new',(req, res)=>{
@@ -14,7 +20,6 @@ router.get('/new',(req, res)=>{
         playlist:Playlist
     });
 });
-
 
 router.post('/', (req, res) => {
     Playlist.create(req.body, (err, playlistItem) => {

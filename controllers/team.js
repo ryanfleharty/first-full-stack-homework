@@ -24,9 +24,18 @@ router.get('/', (req, res) => {
     })
 });
 
-
-
 // CREATE ROUTE
+router.post('/', (req, res) => {
+    Team.create(req.body, (error, newTeam) => {
+        if (error){
+            console.log(error)
+        } else {
+            console.log(newTeam);
+            res.redirect('/team')
+        }
+    })
+});
+
 
 // DELETE ROUTE
 

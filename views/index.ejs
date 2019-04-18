@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Citizens of the Seven Kingdoms:</h1>
+    <ul>
+        <% for (let i = 0; i < got.length; i++) {%>
+            <li>
+            <a href="/got/<%=got[i].id%>"><%=got[i].name; %></a>
+            </li>
+            <form action="/got/<%=got[i].id%>/edit" method="GET">
+                <button type="submit">Edit</button>
+            </form>
+            <form action="/got/<%=got[i].id%>?_method=DELETE" method="POST">
+                <button type="submit" value="delete">Delete</button>
+            </form>
+        <% } %>
+    </ul>
+    <form action="/got/new" method="">
+        <button type="submit">Create</button>
+    </form>
+
+
+
+</body>
+</html>

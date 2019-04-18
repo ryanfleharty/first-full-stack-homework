@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit <%=got.name%>:</h1>
+    <form action="/got/<%=got._id%>?_method=PUT" method="POST">
+        Name: <input type="text" name="name" value="<%=got.name%>"><br/>
+        Gender: <input type="text" name="gender" value="<%=got.gender%>"><br/>
+        Age: <input type="text" name="age" value="<%=got.age%>"><br/>
+        House: <input type="text" name="house" value="<%=got.house%>"><br/>
+        Loves: <input type="text" name="loves" value="<%=got.loves%>"><br/>
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>

@@ -30,7 +30,18 @@ router.get('/new', (req, res) => {
     res.render('new.ejs');
 });
 
-
+//SHOW:
+router.get('/:id', (req, res) => {
+    Got.findOne({_id: req.params.id}, (err, foundCharacter) => {
+        if(err){
+            res.send(err);
+        } else {
+            res.render('show.ejs', {
+                got: foundCharacter
+            })
+        }
+    })
+});
 
 
 //DELETE:

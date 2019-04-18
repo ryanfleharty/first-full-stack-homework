@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString = 'mongodb://localhost/fruits';
+const connectionString = 'mongodb://localhost/got';
 
 //This is what we need to actually connect to MongoDB, which is running on another port (or maybe not since it's in the background).
 mongoose.connect(connectionString, {

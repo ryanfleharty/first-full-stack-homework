@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Edit <%= food.name %></h1>
-    <form action="/foodapp/<%= food._id %>/edit?_method=PUT" method="post">
+    <form action="/foodapp/<%= food._id %>?_method=PUT" method="post">
         <div>Food: <input type="text" value="<%= food.name %>" name="name"></div>
         <div>Meal: <input type="text" value="<%= food.meal %>" name="meal"></div>
         <div>Healthy? <input type="checkbox" name="healthy"

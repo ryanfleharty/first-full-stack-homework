@@ -67,7 +67,7 @@ router.put('/:id', (req, res) => {
     } else {
         req.body.comfort = false;
     }
-    Food.findOneAndUpdate(req.params.id, req.body, (err, editedFood) => {
+    Food.findByIdAndUpdate(req.params.id, req.body, (err, editedFood) => {
         if (err) {
             res.send(err)
         } else {

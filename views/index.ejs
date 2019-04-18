@@ -7,9 +7,21 @@
     <title>Plant Index</title>
 </head>
 <body>
+
     <h1>Plant Index</h1>
-
-
-    
+    <form action="/plants/new" method="GET">
+        <button type = "submit">New Plant</button>
+    </form>
+        <ul>
+        <% for(let i = 0; i < plant.length; i++){%>
+            <li>
+                Plant #: <%=plant[i]._id%><br/>
+                Name: <%=plant[i].name%><br/>
+                Color: <%=plant[i].color%><br/>
+                Leaf Type: <%=plant[i].leafType%><br/>
+            </li>
+            <%}%>
+        </ul>
+        
 </body>
 </html>

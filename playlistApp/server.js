@@ -7,12 +7,6 @@ require('./db/db');
 
 // Require our controller
 const playlistController = require('./controllers/playlist');
-
-
-
-
-
-
 // middleWare
 // We want to make sure that we set this up
 // before our routes, because we want the request's body

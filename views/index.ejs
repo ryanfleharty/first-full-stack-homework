@@ -15,16 +15,8 @@
         <ul>
         <% for(let i = 0; i < plant.length; i++){%>
             <li>
-                Plant #: <%=plant[i]._id%><br/>
-                Name: <%=plant[i].name%><br/>
-                Color: <%=plant[i].color%><br/>
-                Leaf Type: <%=plant[i].leafType%><br/>
-                <form action="/plants/<%=plant[i]._id%>/edit" method="GET">
-                    <button type="submit">Edit</button>
-                </form>
-                <form action="/plants/<%=plant[i]._id%>?_method=DELETE" method="POST">
-                    <button type="submit">Delete</button>
-                </form>
+                <a href="/plants/<%=plant[i]._id%>"><%= plant[i].name %></a>
+
             </li>
             <%}%>
         </ul>

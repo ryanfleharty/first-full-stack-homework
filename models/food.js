@@ -6,6 +6,7 @@ const foodSchema = new mongoose.Schema({
     healthy: Boolean,
     comfort: Boolean,
     rating: {type: Number, min: 0, max: 10},
+    img: String,
 });
 
 const Food = mongoose.model('Food', foodSchema);

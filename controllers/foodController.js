@@ -17,6 +17,18 @@ router.get('/', (req, res)=> {
 })
 
 // show
+router.get('/:id', (req, res) => {
+    Food.findById(req.params.id, (err, foundFood) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('show.ejs', {
+                'food': foundFood,
+            })
+        }
+    })
+})
+
 
 // create
 

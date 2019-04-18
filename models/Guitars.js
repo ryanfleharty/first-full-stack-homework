@@ -6,6 +6,7 @@ const guitarSchema = new mongoose.Schema({
   make: String,
   strings: Number,
   famousGuitarists: [String],
+  img: String,
 });
 
 const Guitars = mongoose.model('Guitars', guitarSchema);

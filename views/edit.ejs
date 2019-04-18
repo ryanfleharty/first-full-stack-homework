@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Guitar Edit Page</title>
+</head>
+<body>
+  <h1>Guitar Edit Page</h1>
+  <form action="/guitars/<%= guitar._id %>?_method=PUT" method="POST">
+    Name: <input type="text" name="name" value="<%= guitar.name %>"><br/>
+    Type: <input type="text" name="type" value="<%= guitar.type %>"><br/>
+    Make: <input type="text" name="make" value="<%= guitar.make %>"><br/>
+    Num Strings: <input type="text" name="strings" value="<%= guitar.strings %>"><br/>
+    Famous Guitarists: <input type="text" name="famousGuitarists" value="<%= guitar.famousGuitarists %>"><br/>
+    New Image URL: <input type="text" name="img"><br/>
+    Old Image:<img width="200px" src="<%= guitar.img %>"><br/>
+    <input type="submit">
+    </form>
+</body>
+</html>

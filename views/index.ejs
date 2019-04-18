@@ -10,7 +10,13 @@
   <h1>Guitar Index Page</h1>
   <ul class="guitars">
   <% for (let i = 0; i < guitars.length; i++){ %>
-    <li><a href="<%= guitars[i]._id %>"><% guitars[i].name %></a></li>
+    <li><a href="/guitars/<%= guitars[i]._id %>"><%= guitars[i].name %></a></li>
+    <form action="/guitars/<%= guitars[i]._id %>?_method=DELETE" method="POST">
+      <button type="submit">Sell guitar</button>
+    </form>
+    <form action="/guitars/<%= guitars[i]._id %>/edit" method="GET">
+      <button type="submit">Upgrade guitar</button>
+    </form>
     <% } %>
   </ul>
   <form action="/guitars/new" method="GET">

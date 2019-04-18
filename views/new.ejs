@@ -8,11 +8,14 @@
 </head>
 <body>
   <h1>Guitar New Page</h1>
-  Name: 
-  Type:  name: { type: String, required: true, unique: true },
-  type: String,
-  make: String,
-  strings: Number,
-  famousGuitarists: [String],
+  <form action="\guitars" method="POST">
+    Name: <input type="text" name="name">
+    Type: <input type="text" name="type">
+    Make: <input type="text" name="make">
+    Num Strings: <input type="text" name="strings">
+    Famous Guitarists: <input type="text" name="famousGuitarists">
+    Image URL: <input type="text" name="img">
+    <input type="submit">
+  </form>
 </body>
 </html>

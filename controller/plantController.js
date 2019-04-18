@@ -49,12 +49,13 @@ router.get('/:id', (req, res) => {
 
 // UPDATE ROUTE
 router.put('/:id', (req, res) => {
-    Plant.findByIdAndUpdate(req.params.id, (err, updatedPlant)=>{
+    Plant.findByIdAndUpdate(req.params.id, req.body, (err, updatedPlant)=>{
         if(err){
-            console.log(err)
+            console.log(err);
+            res.send(err);
         }else{
             console.log(updatedPlant);
-            res.render('show.ejs', {plant: updatedPlant})
+            res.redirect('/plants')
         }
     })
 });

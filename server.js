@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+require('./db/db');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));

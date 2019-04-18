@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="/css/style.css" />
 </head>
 <body>
     <h1>Log Your Food Babies</h1>
     <% for (let i = 0; i < foods.length; i++){%>
         <div>Food: <%= foods[i].name %></div>
         <div>Meal: <%= foods[i].meal %></div>
-        <div>Healthy?: <%= foods[i].healthy %></div>
-        <div>Comfort Food?: <%= foods[i].comfort %></div>
-        <div>Overall Rating (1-10): <%= foods[i].rating %></div>
+        <div>Healthy? <%= foods[i].healthy %></div>
+        <div>Comfort Food? <%= foods[i].comfort %></div>
+        <div class="last">Overall Rating (1-10): <%= foods[i].rating %></div>
     <% } %>
 </body>
 </html>

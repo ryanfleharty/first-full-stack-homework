@@ -6,7 +6,7 @@
 const mongoose = require('mongoose');
 
 // this names the db
-const connectionString = 'mongodb://localhost/fruits';
+const connectionString = 'mongodb://localhost/plants';
 
 // this is connecting to running mongodb on terminal
 mongoose.connect(connectionString, {

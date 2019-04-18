@@ -38,7 +38,16 @@ router.post('/', (req, res) => {
 
 
 // DELETE ROUTE
-
+router.delete('/:id', (req, res) => {
+    Team.findByIdAndDelete(req.params.id, (error, deletedTeam) => {
+        if (error){
+            console.log(error)
+        } else {
+            console.log(deletedTeam)
+            res.redirect('/team')
+        }
+    })
+});
 // EDIT ROUTE
 
 // UPDATE ROUTE

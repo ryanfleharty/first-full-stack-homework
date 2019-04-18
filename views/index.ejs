@@ -22,7 +22,9 @@
                 <form action="/plants/<%=plant[i]._id%>/edit" method="GET">
                     <button type="submit">Edit</button>
                 </form>
-
+                <form action="/plants/<%=plant[i]._id%>?_method=DELETE" method="POST">
+                    <button type="submit">Delete</button>
+                </form>
             </li>
             <%}%>
         </ul>

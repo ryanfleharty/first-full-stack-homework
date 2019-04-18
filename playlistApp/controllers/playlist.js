@@ -1,9 +1,11 @@
-// const express = require('express');
-// const router = express.Router();
-// const Fruit = require('../models/fruits');
+const express = require('express');
+const router = express.Router();
+//const Playlist = require('../models/playlist');
+
+router.get('/',(req, res)=>{
+    res.send('index route hit');
+});
 
 
 
-
-
-// module.exports = router;
+module.exports = router;

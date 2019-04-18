@@ -6,7 +6,7 @@ const methodOverride = require('method-override')
 require('./db/db');
 
 // Require our controller
-//const playlistController = require('./controllers/playlist');
+const playlistController = require('./controllers/playlist');
 
 
 
@@ -23,12 +23,8 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(methodOverride('_method'))
-// app.use(function(req, res, next) {
 
-// })
-// First argument, is where we want all the routes in the controller (2nd arguemnt),
-// to live at, So every single rout in playlistContoller /playlist
-//app.use('/playlist', playlistController);
+app.use('/playlist', playlistController);
 
 
 app.listen(3000, () => {

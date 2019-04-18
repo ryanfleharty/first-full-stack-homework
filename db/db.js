@@ -23,7 +23,7 @@ mongoose.connection.on('disconnected', () => {
 
 
 
-// const teamData = require('../populateTeams');
+//const teamData = require('../populateTeams');
 // Team.collection.insertMany(teamData, (err, data) => {
 //     console.log('added team data');
 //     mongoose.connection.close();

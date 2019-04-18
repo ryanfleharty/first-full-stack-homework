@@ -1,28 +1,28 @@
 const soccerTeams = [
     {name: 'Chelsea',
      league: 'Premier',
-     image: 'https://cdn3.volusion.com/goz35.avhz4/v/vspfiles/photos/EB-NISC3166-100-2.jpg?1488278402',
+     image: 'https://cdn.freebiesupply.com/logos/large/2x/chelsea-fc-2-logo-png-transparent.png',
      isBest: true
     }, 
     {name: 'Manchester_United',
      league: 'Premier',
-     image: './images/manu',
-     isBest: true
+     image: 'http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c4e7.png',
+     isBest: false
     }, 
     {name: 'Liverpool',
      league: 'Premier',
-     image: './images/liverpool',
-     isBest: true
+     image: 'http://www.stickpng.com/assets/images/580b57fcd9996e24bc43c4e5.png',
+     isBest: false
     }, 
     {name: 'Rapids',
      league: 'MLS',
-     image: './images/rapids',
-     isBest: true
+     image: 'https://www.thefinalball.com/img/logos/equipas/2493_imgbank.png',
+     isBest: false
     },
     {name: 'Timbers',
      league: 'MLS',
-     image: './images/timbers',
-     isBest: true
+     image: 'http://pluspng.com/img-png/portland-timbers-logo-png-portland-timbers-vs-new-york-red-bulls-1040.png',
+     isBest: false
     }
 ];
 

@@ -10,11 +10,11 @@ const teamController = require('./controllers/team');
 //MIDDLEWARE
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
-
+app.use("/public", express.static('/public'));
 app.use('/team', teamController);
 
 
-
+app.use(express.static('public'));
 
 
 

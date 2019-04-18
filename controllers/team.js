@@ -48,9 +48,40 @@ router.delete('/:id', (req, res) => {
         }
     })
 });
+
 // EDIT ROUTE
+router.get('/:id/edit', (req, res) => {
+    Team.findById(req.params.id, (error, returnedTeam) => {
+        if (error) {
+            console.log(error);
+        } else {
+            res.render('edit.ejs', {
+            team: returnedTeam,  
+            id: req.params.id,
+            })
+        }
+    })
+});
 
 // UPDATE ROUTE
+router.put('/:id', (req, res) => {
+    Team.findOneAndUpdate({_id: req.params.id}, req.body, (error, editedTeam) => {
+        if(req.body.isBest === 'on'){
+            console.log(req.body)
+            //req.body.isBest = true;
+          } else {
+            req.body.isBest = false;
+          }
+        if (error) {
+            console.log(error);
+        } else {
+            editedTeam = req.body;
+            res.redirect('/team');
+            console.log(editedTeam)
+        }
+    })
+});
+
 
 // SHOW ROUTE
 router.get('/:id', (req, res) => {

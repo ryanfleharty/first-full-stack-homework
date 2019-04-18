@@ -1,0 +1,19 @@
+.first {
+    padding-top: 15px;
+}
+
+.last {
+    padding-bottom: 15px;
+}
+
+#new-button {
+    margin: 15px 15px 15px 0px;
+}
+
+#edit-button {
+    margin: 0px 15px 15px 0px;
+}
+
+#delete-button {
+    margin: 0px 15px 15px 0px;
+}

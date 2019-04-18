@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%=pizza.name%></title>
+</head>
+<body>
+
+	<hr>
+	<h1><%=pizza.name%></h1>
+	<hr>
+
+	<p>
+		Crust: <%=pizza.crust%><br>
+		Sauce: <%=pizza.sauce%><br>
+		Topping: <%=pizza.topping%><br>
+	</p>
+
+	<hr>
+
+	<a href="/pizza/<%=pizza._id%>/edit">Edit this pizza</a>
+	<a href="/pizza">Back to index</a>
+
+</body>
+</html>

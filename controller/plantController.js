@@ -11,7 +11,7 @@ router.get('/', (req, res)=>{
             console.log(err)
         }else{
             console.log(allPlants);
-            res.render('index.ejs')
+            res.render('index.ejs', {plant: allPlants})
         }
     })
 });
@@ -22,19 +22,64 @@ router.get('/new', (req, res) => {
   });
 
 // CREATE ROUTE
-router.post('')
+router.post('/', (req, res) => {
+    Plant.create(req.body, (err, newPlant) => {
+        if(err){
+            console.log(err)
+        }else{
+            console.log(newPlant);
+            res.redirect('/plants')
+        }
+    })
+})
 
 // SHOW ROUTE
-router.get('')
+router.get('/:id', (req, res) => {
+    Plant.findById(req.params.id, (err, onePlant)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(onePlant);
+            res.render('show.ejs', {plant: onePlant});
+        }
+    })
+});
 
 // DELETE ROUTE
-router.delete('')
+router.delete('/:id', (req, res) => {
+    Plant.findByIdAndDelete(req.params.id, (err, deletedPlant)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(deletedPlant);
+            res.redirect('/plants');
+        }
+    })
+});
 
 // EDIT ROUTE
-router.get('')
+router.get('/:id/edit', (req, res) => {
+    Plant.findById(req.params.id, (err, editPlant) => {
+        if(err){
+            console.log(err)
+        }else{
+            console.log(editPlant);
+            res.render('edit.ejs', {plant: editPlant});
+        }
+    })
+})
 
 // UPDATE ROUTE
-router.put('')
+router.put('/:id', (req, res) => {
+    Plant.findByIdAndUpdate(req.params.id, (err, updatedPlant)=>{
+        if(err){
+            console.log(err)
+        }else{
+            console.log(updatedPlant);
+            res.render('show.ejs', {plant: updatedPlant})
+        }
+    })
+});
 
 
 module.exports = router;

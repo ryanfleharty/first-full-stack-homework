@@ -11,7 +11,7 @@ const teamController = require('./controllers/team');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
-app.use('./team', teamController);
+app.use('/team', teamController);
 
 
 

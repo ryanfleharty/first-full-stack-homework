@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plant Index</title>
+</head>
+<body>
+    <h1><%=plant.name%></h1>
+        <ul>
+            <li>
+                Plant #: <%=plant._id%><br/>
+            </li>
+            <li>
+                Color: <%=plant.color%><br/>
+            </li>
+            <li>
+                Leaf Type: <%=plant.leafType%><br/>
+            </li>
+        </ul>
+
+         <form action="/plants/<%=plant._id%>/edit" method="GET">
+            <button type="submit">Edit</button>
+        </form>
+
+        <form action="/plants/<%=plant._id%>?_method=DELETE" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+        
+        <form action="/plants" method="GET">
+            <button type="submit">Index</button>
+        </form>
+                
+                
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plant Index</title>
+</head>
+<body>
+
+    <h1>Plant Index</h1>
+    <form action="/plants/new" method="GET">
+        <button type = "submit">New Plant</button>
+    </form>
+        <ul>
+        <% for(let i = 0; i < plant.length; i++){%>
+            <li>
+                <a href="/plants/<%=plant[i]._id%>"><%= plant[i].name %></a>
+
+            </li>
+            <%}%>
+        </ul>
+        
+</body>
+</html>

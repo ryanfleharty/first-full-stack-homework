@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Edit <%= food.name %></h1>
+    <form action="/foodapp/<%= food._id %>/edit?_method=PUT" method="post">
+        <div>Food: <input type="text" value="<%= food.name %>" name="name"></div>
+        <div>Meal: <input type="text" value="<%= food.meal %>" name="meal"></div>
+        <div>Healthy? <input type="checkbox" name="healthy"
+        <% if (food.healthy === true){%>
+            checked <%}%>
+        ></div>
+        <div>Comfort food? <input type="checkbox" name="comfort"
+        <% if (food.comfort === true) {%>
+            checked <%}%>
+        ></div>
+        <div>Overall Rating (1-10): <input type="text" value="<%= food.rating %>" name="rating"></div>
+        <div>Image: <input type="text" value="<%= food.img %>" name="img"></div>
+        <div><button type="submit">Submit Edited</button>
+    </form>
+
+</body>
+</html>

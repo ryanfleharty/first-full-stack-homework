@@ -56,7 +56,50 @@ router.get('/:id', (req, res) => {
 
 
 // edit
+router.put('/:id', (req, res) => {
+    if (req.body.healthy === 'on'){
+        req.body.healthy = true;
+    } else {
+        req.body.healthy = false;
+    }
+    if (req.body.comfort === 'on'){
+        req.body.comfort = true;
+    } else {
+        req.body.comfort = false;
+    }
+    Food.findOneAndUpdate(req.params.id, req.body, (err, editedFood) => {
+        if (err) {
+            res.send(err)
+        } else {
+            console.log(editedFood);
+            res.redirect('/foodapp')
+        }
+    })
+});
+
+
+router.get('/:id/edit', (req, res) => {
+    Food.findById(req.params.id, (err, editedFood) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.render('edit.ejs', {
+                'food': editedFood,
+            })
+        }
+    })
+});
+
 
 // delete
+router.delete('/:id', (req, res) => {
+    Food.findByIdAndDelete(req.params.id, (err, deletedFood) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.redirect('/foodapp')
+        }
+    })
+});
 
 module.exports = router;

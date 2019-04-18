@@ -21,3 +21,11 @@ mongoose.connection.on('disconnected', () => {
     console.log(`Mongoose disconnected from ${connectionString}`);
 });
 
+
+
+const teamData = require('../populateTeams');
+Team.collection.insertMany(teamData, (err, data) => {
+    console.log('added team data');
+    mongoose.connection.close();
+});
+

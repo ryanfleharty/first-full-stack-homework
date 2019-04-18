@@ -1,27 +1,27 @@
 const soccerTeams = [
     {name: 'Chelsea',
      league: 'Premier',
-     image: './images/chelsea'
+     image: './images/chelsea',
      isBest: true
     }, 
     {name: 'Manchester_United',
      league: 'Premier',
-     image: './images/manu'
+     image: './images/manu',
      isBest: true
     }, 
     {name: 'Liverpool',
      league: 'Premier',
-     image: './images/liverpool'
+     image: './images/liverpool',
      isBest: true
     }, 
     {name: 'Rapids',
      league: 'MLS',
-     image: './images/rapids'
+     image: './images/rapids',
      isBest: true
     },
     {name: 'Timbers',
      league: 'MLS',
-     image: './images/timbers'
+     image: './images/timbers',
      isBest: true
     }
 ];

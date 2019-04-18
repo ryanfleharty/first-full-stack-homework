@@ -13,6 +13,9 @@
             <li>
             <a href="/got/<%=got[i].id%>"><%=got[i].name; %></a>
             </li>
+            <form action="/got/<%=got[i].id%>/edit" method="GET">
+                <button type="submit">Edit</button>
+            </form>
             <form action="/got/<%=got[i].id%>?_method=DELETE" method="POST">
                 <button type="submit" value="delete">Delete</button>
             </form>

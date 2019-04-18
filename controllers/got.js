@@ -44,6 +44,42 @@ router.get('/:id', (req, res) => {
 });
 
 
+//UPDATE:
+router.put('/:id', (req, res) => {
+    Got.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedCharacter) => {
+        if(err){
+            res.send(err);
+        } else {
+        res.redirect('/got')
+        }
+    })
+});
+
+router.get('/:id/edit', (req, res) => {
+    Got.findById(req.params.id, (err, updatedCharacter) => {
+        if(err){
+            res.send(err);
+        } else {
+            res.render('edit.ejs', {
+                got: updatedCharacter
+            })
+        }
+    })
+});
+// router.get('/:id/edit', (req, res) => {
+//     Got.findOne({_id: req.params.id}, (err, updatingCharacter) => {
+//         if(err){
+//             res.send(err);
+//         } else {
+//             res.render('edit.ejs', {
+//                 id: req.params.id,
+//                 got: updatingCharacter
+//             })
+//         }
+//     })
+// });
+
+
 //DELETE:
 router.delete('/:id', (req, res) => {
     Got.findByIdAndDelete({_id: req.params.id}, (err, deletedCharacter) => {

@@ -19,6 +19,10 @@
                 Name: <%=plant[i].name%><br/>
                 Color: <%=plant[i].color%><br/>
                 Leaf Type: <%=plant[i].leafType%><br/>
+                <form action="/plants/<%=plant[i]._id%>/edit" method="GET">
+                    <button type="submit">Edit</button>
+                </form>
+
             </li>
             <%}%>
         </ul>

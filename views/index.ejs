@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Index of Pizzas</title>
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+	<h1>Pizzas</h1>
+
+	<ul>
+		<%	for (let i = 0; i < pizzas.length; i++) {	%>
+				<li>
+					<form action="/pizza/<%=pizzas[i].id%>?_method=DELETE" method="POST">
+						<a href="/pizza/<%=pizzas[i]._id%>"><%=pizzas[i].name%></a>
+						<button type="submit">DELETE</button>
+					</form>
+				</li>
+		<%	}	%>
+	</ul>
+
+	<a href="/pizza/new">Create a new pizza</a>
+</body>
+</html>

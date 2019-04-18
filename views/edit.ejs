@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editing <%=pizza.name%></title>
+</head>
+<body>
+
+	<hr>
+	<h1>Editing <%=pizza.name%></h1>
+	<hr>
+
+	<form action="/pizza/<%=pizza._id%>?_method=PUT" method="POST">
+		<input type="text" name="name" value="<%=pizza.name%>">Name</input><br>
+		<input type="text" name="crust" value="<%=pizza.crust%>">Crust</input><br>
+		<input type="text" name="sauce" value="<%=pizza.sauce%>">Sauce</input><br>
+		<input type="text" name="topping" value="<%=pizza.topping%>">Topping</input><br>
+		<button type="submit">Submit</button><br>
+	</form>
+
+	<hr>
+
+</body>
+</html>

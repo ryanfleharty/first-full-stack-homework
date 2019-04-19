@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Guitar Show Page</title>
+</head>
+<body>
+  <h1>Guitar Show Page</h1>
+    <h2>Name: <%= guitar.name %></h2>
+    <h2>Type: <%= guitar.type %></h2>
+    <h2>Make: <%= guitar.make %></h2>
+    <h2>Num Strings: <%= guitar.strings %></h2>
+    <h2>Famous Guitarists:</h2>
+    <ul class="famous-guitarists">
+      <% for (let i = 0; i < guitar.famousGuitarists.length; i++) { %>
+      <li><%= guitar.famousGuitarists[i] %></li><br/>
+      <% } %>
+    </ul>
+    <h2>Image URL: <img width="200px" src="<%= guitar.img %>"></h2>
+    <form action="/guitars/<%= guitar._id %>?_method=DELETE" method="POST">
+      <button type="submit">Sell guitar</button>
+    </form>
+</body>
+</html>

@@ -23,7 +23,7 @@ router.get('/new',(req, res)=>{
     });
 });
 
-//update
+//create
 router.post('/', (req, res) => {
     Playlist.create(req.body, (err, playlistItem) => {
         if (err) {
@@ -34,6 +34,17 @@ router.post('/', (req, res) => {
     })
 });
 
+router.put('/:id', (req, res) => {
+    Playlist.findOneAndUpdate(req.params.id, req.body, (err, playlistItem) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.redirect('/playlist');
+        }
+        console.log(playlistItem)
+    })
+});
+
 //edit
 router.get('/:id/edit', (req, res) => {
     Playlist.findById(req.params.id, (err, found) => {
@@ -41,7 +52,8 @@ router.get('/:id/edit', (req, res) => {
             res.send(err);
         } else {
             res.render('edit.ejs', {
-                playlist: found
+                playlist: found,
+                id:req.params.id
             });
         }
     })

@@ -35,25 +35,47 @@ router.post('/', (req, res) => {
 });
 
 //edit
-router.get('/id:/edit',(req, res)=>{
-    res.render('edit.ejs', ({
-        id: req.params.id
-    }))
+router.get('/:id/edit', (req, res) => {
+    Playlist.findById(req.params.id, (err, found) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('edit.ejs', {
+                playlist: found
+            });
+        }
+    })
+
+});
+//delete
+router.delete('/:id', (req, res) => {
+    Playlist.findByIdAndRemove({
+        _id: req.params.id
+    }, (err, deleted) => {
+        if (err) {
+            res.send(err);
+        } else {
+            console.log(deleted);
+            res.redirect('/playlist');
+        }
+    })
+
 });
 
 //show
-router.get('/id:',(req, res)=>{
-    Playlist.findOne(req.params.id, (err, playlistItem) => {
-    if (err) {
-        res.send(err);
-    } else {
-        res.redirect('show.ejs', {
-            playlist: playlistItem
-        });
-    }
-    console.log(playlistItem)
+router.get('/:id', (req, res) => {
+    Playlist.findById(req.params.id, (err, found) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.render('show.ejs',{
+                playlist:found
+            });
+        }
     })
-    });
-    
+
+});
+
+
 
 module.exports = router;

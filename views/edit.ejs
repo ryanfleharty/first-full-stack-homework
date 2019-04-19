@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <h1>Edit Coffee Page</h1>
+  <form action="/coffee/<%=coffee._id%>?_method=PUT" method="POST">
+    Name: <input type="text" name="name" value="<%=coffee.name%>"/><br/>
+    Type: <input type="text" name="type" value="<%=coffee.type%>"/><br/>
+    Is Instant:
+    <input type="checkbox" name="isInstant"
+      <% if(coffee.isInstant === true){%>
+        checked
+      <%}%>
+    /><br/>
+
+
+    <button type="submit">edit Coffee</button>
+
+  </form>
+
+</body>
+</html>

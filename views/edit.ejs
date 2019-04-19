@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Luckiest+Guy" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Edit</title>
+</head>
+<body>
+    <h1>Edit <%=team.name%></h1>
+    <form action="/team/<%=id%>?_method=PUT" method="POST">
+        <p>Name: <input type="text" name="name" value="<%=team.name%>"></p>
+        <p>League: <input type="text" name="league" value="<%=team.league%>"></p>
+        <p>Image: <input type="text" name="image" value="<%=team.image%>"></p>
+        <p>Are they the best? <input type="checkbox" name="isBest" 
+            <% if(team.isBest === true){ %>
+            checked
+            <%}%>
+            /></p>
+        <button type="submit">Submit Changes</button>
+        <a class="homeButton" href="/team"><button>Home</button></a>
+    </form>
+</body>
+</html>

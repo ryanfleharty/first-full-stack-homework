@@ -9,6 +9,6 @@ const guitarSchema = new mongoose.Schema({
   img: String,
 });
 
-const Guitars = mongoose.model('Guitars', guitarSchema);
+const Guitar = mongoose.model('Guitar', guitarSchema);
 
-module.exports = Guitars;
+module.exports = Guitar;

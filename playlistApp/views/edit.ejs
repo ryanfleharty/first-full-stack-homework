@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Playlist</title>
+</head>
+<body>
+    <H1>TOTALLY EDIT YOUR PLAYLIST!! </H1>
+     <form action="/playlist/<%=id%>?_method=PUT" method="POST">
+    Song: <input type="text" name="song" value=<%=playlist.song%>>
+    Artist: <input type="text" name="artist" value=<%=playlist.artist%>>
+    <input type="submit">
+    </form>
+</body>
+</html>

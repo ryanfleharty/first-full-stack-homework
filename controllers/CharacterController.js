@@ -19,7 +19,6 @@ router.get('/new', (req, res) =>{
 
 
 // Create Route
-
 router.post('/new', (req, res)=>{
 	          if(req.body.alive === 'on'){
     req.body.alive = true;
@@ -37,7 +36,17 @@ router.post('/new', (req, res)=>{
     })
 });
 
-
+// Edit Route
+router.get('/:id/edit', (req, res) =>{
+    Character.findById(req.params.id, (error, foundChar) =>{
+      if (error){
+        console.log(error)
+      } else {
+        console.log(foundChar);
+	res.render('edit.ejs', {id: req.params.id});
+	}
+	})
+});
 
 
 

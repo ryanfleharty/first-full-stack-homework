@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Add a New Character</h1>
-    <form action="/new" method="POST">
+    <H1>Edit Character Here</H1>
+    <form action="/<%=id%>?_method=PUT" method="POST">
     Name: <input type="text" name="name" placeholder="name">
     Family: <input type="text" name="family" placeholder="family">
     Sigil: <input type="text" name="sigil" placeholder="sigil">
@@ -17,3 +17,5 @@
     </form>
 </body>
 </html>
+
+

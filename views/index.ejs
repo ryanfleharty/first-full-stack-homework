@@ -7,6 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h1>our products</h1>
+    <%for(let i = 0; i < pr.length; i++){%>
+    <li><a href = "/products/<%=products[i]._id%>"><%=products[i].name%></a></li>
+    <form action ="/products/<%=products[i]._id%>?_method=DELETE" method="product">
+        <button type="submit">Remove product</button>
+    </form>
+    <form action ="/products/<%=products[i]._id%>/edit" method="GET">
+        <button type="submit">Edit Products</button>
+    </form>
+    <%}%>
+    </ul>
+    <form action = "/products/new" method = "GET">
+         <button type="submit">Create a new product</button>
+    </form>
 </body>
 </html>

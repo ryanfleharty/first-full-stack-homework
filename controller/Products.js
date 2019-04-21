@@ -56,7 +56,7 @@ router.get('/:id/edit', (req, res) => {
 }); 
 
 // Delete products
-router.put('/:id', (req, res) =>{
+router.delete('/:id', (req, res) =>{
     product.findByIDAndRemove(req.params.id, req.body, (err, deletedProduct) => {
         if (err) {
             console.log(err);

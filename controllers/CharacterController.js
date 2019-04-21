@@ -12,6 +12,7 @@ router.get('/', (req, res)=>{
     })
 })
 
+
 // New Route
 router.get('/new', (req, res) =>{
 	res.render('../views/new.ejs')
@@ -36,6 +37,7 @@ router.post('/new', (req, res)=>{
     })
 });
 
+
 // Edit Route
 router.get('/:id/edit', (req, res) =>{
     Character.findById(req.params.id, (error, foundChar) =>{
@@ -52,15 +54,15 @@ router.get('/:id/edit', (req, res) =>{
 	})
 });
 
-// Update Route
 
+// Update Route
 router.put('/:id', (req, res)=>{
+	Character.findOneAndUpdate({_id: req.params.id}, req.body, (err, updatedChar)=>{
 	if(req.body.alive === 'on'){
 		req.body.alive = true;
 	}	else {
 		req.body.alive = false
 	}
-	Character.findOneAndUpdate({_id: req.params.id}, req.body, (err, updatedChar)=>{
 		if(err) {
 			console.log(err);
 		} else {
@@ -71,8 +73,8 @@ router.put('/:id', (req, res)=>{
 	})
 })
 
-// Delete Route
 
+// Delete Route
 router.delete('/:id', (req, res) => {
     Character.findByIdAndDelete(req.params.id, (error, deletedItem) =>{
       if (error){
@@ -85,27 +87,21 @@ router.delete('/:id', (req, res) => {
   });
 
 
-
-
-
-
 // Show Route
+router.get('/:id', (req, res) =>{
+	Character.findById(req.params.id, (err, foundChar)=>{
+		if(req.body.alive === 'on'){
+			req.body.alive = true;
+		}	else {
+			req.body.alive = false
+		}
+		res.render('show.ejs', {
+		id: req.params.id,
+		character: foundChar
+		})
+	});
 
-// router.get('/:id', (req, res) =>{
-// 	Character.findOne({_id: req.params.id}, (err, foundChar)=>{
-// 		if(err){
-// 			console.log(err)
-// 		} else {
-// 			console.log(foundChar);
-// 		}
-// 	});
-// 	res.render('show.ejs', {
-// 		character: Character[req.params.id]
-// 	})
-// });
-
-
-
+});
 
 
 

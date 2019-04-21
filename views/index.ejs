@@ -10,12 +10,15 @@
   <h1> Characters Index Page</h1>
     <ul>
     <%for(i=0;i<Characters.length;i++){%>
-      <li><a href="/Characters/<%=i%>"><%=Characters[i].name%></a></br></li>
+      <li><a href="/<%=i%>"><%=Characters[i].name%></a></br></li>
       <li><a href="/<%=Characters[i]._id%>/edit"><button>Edit</button></a></br></li>
-
+      <form action="/<%=Characters[i]._id%>?_method=DELETE" method="POST">
+      <button>KILL</button>
+      </form>
     <%}%>
   </ul>
 
+        <a href="/new"><button>Add A New Character</button></a>
 
   </body>
 </html>

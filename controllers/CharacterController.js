@@ -43,10 +43,73 @@ router.get('/:id/edit', (req, res) =>{
         console.log(error)
       } else {
         console.log(foundChar);
-	res.render('edit.ejs', {id: req.params.id});
+	res.render('edit.ejs', {
+		id: req.params.id,
+		Character: foundChar
+
+	});
 	}
 	})
 });
+
+// Update Route
+
+router.put('/:id', (req, res)=>{
+	if(req.body.alive === 'on'){
+		req.body.alive = true;
+	}	else {
+		req.body.alive = false
+	}
+	Character.findOneAndUpdate({_id: req.params.id}, req.body, (err, updatedChar)=>{
+		if(err) {
+			console.log(err);
+		} else {
+			updatedChar = req.body;
+			res.redirect('/');
+			console.log(updatedChar);
+		}
+	})
+})
+
+// Delete Route
+
+router.delete('/:id', (req, res) => {
+    Character.findByIdAndDelete(req.params.id, (error, deletedItem) =>{
+      if (error){
+        console.log(error)
+      } else {
+        console.log(deletedItem);
+        res.redirect('/')
+      }
+    })
+  });
+
+
+
+
+
+
+// Show Route
+
+router.get('/:id', (req, res) =>{
+	Character.findOne({_id: req.params.id}, (err, foundChar)=>{
+		if(err){
+			console.log(err)
+		} else {
+			console.log(foundChar);
+		}
+	});
+	res.render('show.ejs', {
+		character: Character[req.params.id]
+	})
+});
+
+
+
+
+
+
+
 
 
 

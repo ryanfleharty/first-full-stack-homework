@@ -91,33 +91,18 @@ router.delete('/:id', (req, res) => {
 
 // Show Route
 
-router.get('/:id', (req, res) =>{
-	Character.findOne({_id: req.params.id}, (err, foundChar)=>{
-		if(err){
-			console.log(err)
-		} else {
-			console.log(foundChar);
-		}
-	});
-	res.render('show.ejs', {
-		character: Character[req.params.id]
-	})
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// router.get('/:id', (req, res) =>{
+// 	Character.findOne({_id: req.params.id}, (err, foundChar)=>{
+// 		if(err){
+// 			console.log(err)
+// 		} else {
+// 			console.log(foundChar);
+// 		}
+// 	});
+// 	res.render('show.ejs', {
+// 		character: Character[req.params.id]
+// 	})
+// });
 
 
 
@@ -127,3 +112,4 @@ router.get('/:id', (req, res) =>{
 
 
 module.exports = router;
+

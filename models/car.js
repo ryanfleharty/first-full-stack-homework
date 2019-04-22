@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const carSchema = New mongoose.Schema({
+const carSchema = new mongoose.Schema({
   year:{type:Date},
   make: {type: String, required: true},
   model: {type: String, required: true},

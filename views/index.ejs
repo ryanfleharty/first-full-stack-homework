@@ -7,6 +7,12 @@
       <h1>Cars index page</h1>
 
         <a href="/cars/new"> Create A New Car</a>
-        
+        <% for(let i = 0; i < cars.length; i++){ %>
+          <li>
+            <a href="/cars/<%=cars[i]._id%>"><%=cars[i].year%><%=cars[i].make%><%=cars[i].model%><%=cars[i].color%></a>
+            <form action="/cars/<%=cars[i]._id%>?._method=Delete" method="POST">
+              <button>Delete</button>
+          </li>
+        <% } %>
   </body>
 </html>

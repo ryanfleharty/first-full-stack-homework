@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+     <link href='https://fonts.googleapis.com/css?family=Annie Use Your Telescope' rel='stylesheet'>
+  </head>
+  <body>
+  <h1> Characters Index Page</h1>
+    <ul>
+    <%for(i=0;i<Characters.length;i++){%>
+      <li><a href="/<%=Characters[i]._id%>"><%=Characters[i].name%></a></br></li>
+      <li><a href="/<%=Characters[i]._id%>/edit"><button>Edit</button></a></br></li>
+      <form action="/<%=Characters[i]._id%>?_method=DELETE" method="POST">
+      <button>KILL</button>
+      </form>
+    <%}%>
+  </ul>
+
+        <a href="/new"><button>Add A New Character</button></a>
+
+  </body>
+</html>
+
+
+     

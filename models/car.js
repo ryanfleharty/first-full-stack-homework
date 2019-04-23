@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const carSchema = new mongoose.Schema({
-  year:{type:Date},
+  year:{type: String},
   make: {type: String, required: true},
   model: {type: String, required: true},
   color: {type: String}

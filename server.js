@@ -2,10 +2,12 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override'); 
+const mongoose = require('mongoose');
 
 
-const product = require('product');
-const router = require('router');
+const productsController = require('./controller/Products');
+
+
 
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({ extended: true }));

@@ -1,90 +1,78 @@
 const express = require('express');
 const router = express.Router();
-const product = require('./models');
+const Product = require('./models');
+const mongoose = require('mongoose');
 
 
 
-// index products
-router.get('/index.ejs', (req, res) => {
-    product.find({}, (err, allProducts) => {
-        if(err){
-            console.log(err);
-        } else {
-            console.log(allProducts);
-            res.show('index.ejs', {products: allProducts});
-        }
-    })
+router.get('/', async (req, res) => {
+    try {
+        const foundProduct = await Product.find({});
+        res.render('product/index.ejs', {
+            Product: foundProduct
+        });
+    } catch (err) {
+        res.send(err)
+    }
 });
 
-// create products
-router.post('/', (req, res) => {
-    product.create(req.body, (err, createdProduct) => {
-        if(err) {
-            console.log(err);
-        } else {
-            console.log(createdProduct);
-            res.redirect('index.ejs');
-        }
-    })
-    router.get('/new', (req, res) => {
-        res.render('new.ejs');
-    })
+router.get('/new', async (req, res) => {
+    res.render('product/new.ejs')
 });
 
-
-// Edit products
-router.put('/:id', (req, res) => {
-    product.findByIdAndUpdate(req.params.id, req.body, (err, updateProduct) => {
-        if (err) {
-            console.log(err);
-            res.send(err);
-        } else {
-            res.redirect('edit.ejs')
-        }
-    })
+router.post('/', async (req, res) => {
+    try {
+        const createdProduct = await Product.create(req.body);
+        console.log(createdProduct);
+        res.redirect('/product');
+    } catch (err) {
+        console.log(err)
+        res.send(err)
+    }
 });
 
-router.get('/:id/edit', (req, res) => {
-    product.findByID(req.params.id, (err, foundProduct) =>{
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(findProduct);
-            res.render('edit.ejs', {products: foundProduct});
-        }
-    })
-}); 
-
-// Delete products
-router.delete('/:id', (req, res) =>{
-    product.findByIDAndRemove(req.params.id, req.body, (err, deletedProduct) => {
-        if (err) {
-            console.log(err);
-            res.send(err);
-        } else {
-            console.log(deletedProduct);
-            res.redirect('index.ejs');
-        }
-    })
+router.get('/:id', async (req, res) => {
+    try {
+        const allProducts = await Product.findById(req.params.id)
+        res.render('product/show.ejs', {
+            Product: allProducts
+        });
+    } catch (err) {
+        console.log(err);
+        res.send(err);
+    }
 });
 
+router.put('/:id/edit', async (req, res) => {
+    try {
+        const foundProduct = await Product.findById(req.params.id)
+        res.render('product/edit.ejs', {
+            Product: foundProduct
+        })
+    } catch (err) {
+        res.send(err)
+    }
+});
 
-//Show products
-router.get('/:id/edit', (req, res) => {
-    product.findByID(req.params.id, (err, foundProduct) => {
-        if (err) {
-            console.log(err);
-            res.send(err);
-        } else {
-            console.log(findProduct);
-            res.render('show.ejs', { products: foundProduct });
-        }
-    })
-}); 
+router.put('/:id', async (req, res) => {
+    try {
+        const updateProduct = await Product.findByIdAndUpdate(req.params.id);
+        res.redirect('/product')
+    } catch (err) {
+        res.send(err)
+    }
+});
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const foundProduct = await Product.findByIdAndDelete(req.params.id);
+        const deleteProduct = await Product.findOne({ 'product': req.params.id })
 
-
-
+        res.redirect('/product')
+    } catch (err) {
+        res.send(err);
+    }
+});
 
 
 

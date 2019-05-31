@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1> EDIT Friends </h1>
+    <form action="/friends/<%=id%>?_method=PUT" method="POST">
+   Name: <input type='text' name='name' value='<%=friends.name%>'>
+   City:<input type='text' name='city'  value='<%=friends.city%>'>
+   Age: <input type='text' name='age'   value='<%=friends.age%>'>
+   Qualities: <input type='text' name='qualities' >
+    </form>
+ <button type="submit">edit friend</button>
+</body>
+</html>
+
+
+
